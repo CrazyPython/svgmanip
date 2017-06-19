@@ -1,11 +1,13 @@
 from __future__ import division
 import re
 import svgutils
+import os
 from lxml import etree
 import mpmath as math
 from ensure import ensure
 from svgutils.compose import SVG, Figure, Unit
 from svgutils import transform as _transform
+from tempfile import NamedTemporaryFile
 
 math.dps = 17  # SVG's precision is double, which may be up to 17 digits
 
@@ -138,6 +140,32 @@ class Element(Figure):
 
     def dump(self, filename):
         return self.save(filename)
+
+    def to_png(self, width, height=None):
+        # rather unfortunately, the two available python libraries either
+        #  a) don't support Python 2.7 or b) generate awful images
+        if height is None:
+            wh_string = width
+        else:
+            wh_string = "{}:{}".format(width, height)
+        # svgexport fails on files missing the svg extension
+        in_tempfile = NamedTemporaryFile(suffix=".svg", delete=False)
+        in_tempfile.write(self.dumps())
+
+        # svgexport also fails if the file isn't closed
+        in_tempfile.close()
+
+        out_tempfile = NamedTemporaryFile()
+        command = 'svgexport {} {} {} > /dev/null'.format(in_tempfile.name, out_tempfile.name, wh_string)
+        exit_code = os.system(command)
+        if exit_code != 0:
+            raise RuntimeError("External command svgexport failed")
+        out_tempfile.seek(0)
+        return out_tempfile.read()
+
+    def save_as_png(self, filename, width, height=None):
+        with open(filename, mode="wb") as f:
+            f.write(self.to_png(width, height))
 
     def find_id(self, element_id):
         """Find a single element with the given ID.
