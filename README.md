@@ -18,10 +18,13 @@ output.dump('output.svg')
 
 Generates this image:
 
+<p align="center">
 <img src="https://uploads.avertly.co/1b8.svg"/>
-
-<center>*(the cropped edges are because of the output dimensions, which are customizable)*</center>
-
+<sub>
+<p align="center">
+(The cropped edges are because of the output dimensions, which are customizable.)
+</p></sub>
+</p>
 Unlike [`svgutils `](https://github.com/btel/svg_utils) (which this module is based on), `.rotate()` rotates about the center of the graphic, instead of the top left corner. This produces results the user would expect.
 
 Did you notice that you didn't need to specify the dimensions of an imported image? That's because `svgmanip` detects it automatically behind the scenes!
