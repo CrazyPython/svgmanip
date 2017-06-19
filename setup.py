@@ -33,7 +33,7 @@ INSTALL_REQUIRES = [
 
 setup(
     name='svgmanip',
-    version='0.0.1',
+    version='0.0.2',
     py_modules=['svgmanip'],
     url='https://github.com/CrazyPython/svgmanip',
     license='Apache 2.0',
