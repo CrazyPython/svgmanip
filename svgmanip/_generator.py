@@ -54,38 +54,6 @@ def get_quad_shift_and_dims(width, height, degrees):
     )
 
 
-def rotate_from_svgobj(svgobj, width, height, degrees):
-    svgobj.rotate(degrees, width / 2, height / 2)
-    # height then width
-    quad_shift, quad_dims = get_quad_shift_and_dims(width, height, degrees)
-    figure = Figure(quad_dims[0], quad_dims[1], svgobj)
-
-    figure.move(*quad_shift)
-    return figure
-
-
-def rotate_from_file(filename, width, height, degrees, output_filename):
-    original = SVG(filename)
-    figure = rotate_from_svgobj(original)
-    figure.save(output_filename)
-
-
-def arrange_images(images, positions, dimensions, final_width, final_height, degrees=None, scalings=None):
-    if scalings is None:
-        scalings = [1] * len(images)
-    if degrees is None:
-        degrees = [0] * len(images)
-
-    parameters = [
-        rotate_from_svgobj(svgutils.transform.fromstring(image).scale(scaling), *dimension, degrees=degree,
-                           position=position) for
-        image, position, dimension, scaling, degree in
-        zip(images, positions, dimensions, scalings, degrees)
-    ]
-    figure = Figure(final_width, final_height, *parameters)
-    return figure.tostr()
-
-
 class Element(Figure):
     @staticmethod
     def _parse_string_dimension(dimension):
