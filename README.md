@@ -30,6 +30,8 @@ Unlike [`svgutils`](https://github.com/btel/svg_utils) (which this module is bas
 
 Did you notice that you didn't need to specify the dimensions of an imported image? That's because `svgmanip` detects it automatically behind the scenes!
 
+`.dumps()` grabs the full, real SVG code, not just the root element like `.tostr()` in `svgutils`.
+
 ### Install
 
 ```
