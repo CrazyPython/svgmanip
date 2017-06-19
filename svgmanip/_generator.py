@@ -1,6 +1,7 @@
 from __future__ import division
 import re
 import svgutils
+from lxml import etree
 import mpmath as math
 from ensure import ensure
 from svgutils.compose import SVG, Figure, Unit
@@ -124,7 +125,16 @@ class Element(Figure):
         return svgutils.transform.fromfile(filename)
 
     def dumps(self):
-        return self.tostr()
+        # the default .tostr() function fails to return the same text .dump() would return
+        element = _transform.SVGFigure(self.width, self.height)
+        element.append(self)
+        out = etree.tostring(element.root, xml_declaration=True,
+                             standalone=True,
+                             pretty_print=True)
+        # but even this doesn't make it. The encoding must be changed to UTF-8 (otherwise svgexport fails)
+        out = out.replace("version='1.0'", 'version="1.0"')
+        out = out.replace("encoding='ASCII'", 'encoding="UTF-8"')
+        return out
 
     def dump(self, filename):
         return self.save(filename)
