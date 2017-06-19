@@ -14,6 +14,7 @@ output.placeat(skip, 107.81, 8.76)
 output.placeat(attack, 170.9, 0.08)
 
 output.dump('output.svg')
+output.save_as_png('output.png', 1024)
 ```
 
 Generates this image:
@@ -35,6 +36,7 @@ Did you notice that you didn't need to specify the dimensions of an imported ima
 ### Install
 
 ```
+npm install -g svgexport  # if you want to be able to export to PNG
 pip install svgmanip
 ```
 
@@ -54,7 +56,7 @@ Since the `Element` class inherits from the `Figure` class in `svgutils`, it als
 - `.dumps` - dump to a string
 - `.loads` - load from a string
 - `.load` - load from a file (*note:* using the default constructor is reccomended in this context)
-
+- `.to_png` - returns the generated PNG as a string
 
 ## License
 
