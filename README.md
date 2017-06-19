@@ -30,6 +30,12 @@ Unlike [`svgutils`](https://github.com/btel/svg_utils) (which this module is bas
 
 Did you notice that you didn't need to specify the dimensions of an imported image? That's because `svgmanip` detects it automatically behind the scenes!
 
+### Install
+
+```
+pip install svgmanip
+```
+
 ## Documentation
 
 `.rotate()` additionally supports passing optional `x` and `y` coordinates.
