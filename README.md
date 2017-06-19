@@ -1,6 +1,6 @@
 # `svgmanip`
 
-Using`svgmanip`, you can easily rotate and scale SVGs on the fly. In Warfrogs, this code:
+Using `svgmanip`, you can easily rotate and scale SVGs on the fly. In Warfrogs, this code:
 
 ```python
 from svgmanip import Element
@@ -25,7 +25,8 @@ Generates this image:
 (The cropped edges are because of the output dimensions, which are customizable.)
 </p></sub>
 </p>
-Unlike [`svgutils `](https://github.com/btel/svg_utils) (which this module is based on), `.rotate()` rotates about the center of the graphic, instead of the top left corner. This produces results the user would expect.
+
+Unlike [`svgutils`](https://github.com/btel/svg_utils) (which this module is based on), `.rotate()` rotates about the center of the graphic, instead of the top left corner. This produces results the user would expect.
 
 Did you notice that you didn't need to specify the dimensions of an imported image? That's because `svgmanip` detects it automatically behind the scenes!
 
