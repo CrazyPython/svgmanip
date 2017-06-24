@@ -1,4 +1,5 @@
 # `svgmanip`
+[![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/CrazyPython)
 
 Using `svgmanip`, you can easily rotate and scale SVGs on the fly. In Warfrogs, this code:
 
