@@ -124,7 +124,7 @@ class Element(Figure):
         return svgutils.transform.fromstring(string)
 
     @staticmethod
-    def load(self, filename):
+    def load(filename):
         return svgutils.transform.fromfile(filename)
 
     def dumps(self):
