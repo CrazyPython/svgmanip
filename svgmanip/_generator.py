@@ -1,13 +1,14 @@
 from __future__ import division
 import re
-import svgutils
 import os
+from tempfile import NamedTemporaryFile
+
+import svgutils
 from lxml import etree
 import mpmath as math
 from ensure import ensure
 from svgutils.compose import SVG, Figure, Unit
 from svgutils import transform as _transform
-from tempfile import NamedTemporaryFile
 
 math.dps = 17  # SVG's precision is double, which may be up to 17 digits
 
