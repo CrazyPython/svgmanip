@@ -61,6 +61,9 @@ def get_quad_shift_and_dims(width, height, degrees):
 class Element(Figure):
     @staticmethod
     def _parse_string_dimension(dimension):
+        if dimension is None:
+            raise ValueError('Expected `dimension` to be str, Unit, float, or int, got None.')
+
         if isinstance(dimension, str):
             dimension = dimension.strip()
             groups = re.match(r'(\d+)\w*', dimension).groups()
