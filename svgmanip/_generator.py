@@ -1,13 +1,14 @@
 from __future__ import division
 import re
-import svgutils
 import os
+from tempfile import NamedTemporaryFile
+
+import svgutils
 from lxml import etree
 import mpmath as math
 from ensure import ensure
 from svgutils.compose import SVG, Figure, Unit
 from svgutils import transform as _transform
-from tempfile import NamedTemporaryFile
 
 math.dps = 17  # SVG's precision is double, which may be up to 17 digits
 
@@ -60,6 +61,9 @@ def get_quad_shift_and_dims(width, height, degrees):
 class Element(Figure):
     @staticmethod
     def _parse_string_dimension(dimension):
+        if dimension is None:
+            raise ValueError('Expected `dimension` to be str, Unit, float, or int, got None.')
+
         if isinstance(dimension, str):
             dimension = dimension.strip()
             groups = re.match(r'(\d+)\w*', dimension).groups()
@@ -123,7 +127,7 @@ class Element(Figure):
         return svgutils.transform.fromstring(string)
 
     @staticmethod
-    def load(self, filename):
+    def load(filename):
         return svgutils.transform.fromfile(filename)
 
     def dumps(self):
