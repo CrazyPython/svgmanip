@@ -33,12 +33,12 @@ INSTALL_REQUIRES = [
 
 setup(
     name='svgmanip',
-    version='0.0.2',
+    version='0.0.5',
     py_modules=['svgmanip'],
     url='https://github.com/CrazyPython/svgmanip',
     license='Apache 2.0',
     author='James Lu',
-    author_email='james@avertly.co',
+    author_email='jamtlu@gmail.com',
     description='A simple library for programmatically generating SVGs.',
     classifiers=CLASSIFIERS,
     install_requires=INSTALL_REQUIRES,
