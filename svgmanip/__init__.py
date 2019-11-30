@@ -1,1 +1,1 @@
-from _generator import Element
+from ._generator import Element
