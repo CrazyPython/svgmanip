@@ -1,4 +1,4 @@
-from distutils.core import setup
+import setuptools
 
 CLASSIFIERS = [
     "Development Status :: 5 - Production/Stable",
@@ -31,7 +31,7 @@ INSTALL_REQUIRES = [
     'ensure'
 ]
 
-setup(
+setuptools.setup(
     name='svgmanip',
     version='0.0.6',
     py_modules=['svgmanip'],
@@ -43,4 +43,5 @@ setup(
     classifiers=CLASSIFIERS,
     install_requires=INSTALL_REQUIRES,
     keywords=KEYWORDS,
+    packages=setuptools.find_packages(),
 )
