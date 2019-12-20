@@ -1,4 +1,4 @@
-from distutils.core import setup
+import setuptools
 
 CLASSIFIERS = [
     "Development Status :: 5 - Production/Stable",
@@ -31,9 +31,9 @@ INSTALL_REQUIRES = [
     'ensure'
 ]
 
-setup(
+setuptools.setup(
     name='svgmanip',
-    version='0.0.6',
+    version='0.0.7',
     py_modules=['svgmanip'],
     url='https://github.com/CrazyPython/svgmanip',
     license='Apache 2.0',
@@ -43,4 +43,5 @@ setup(
     classifiers=CLASSIFIERS,
     install_requires=INSTALL_REQUIRES,
     keywords=KEYWORDS,
+    packages=setuptools.find_packages(),
 )
