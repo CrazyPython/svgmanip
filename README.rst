@@ -25,26 +25,10 @@ fly. In Warfrogs, this code:
 
 Generates this image:
 
-.. raw:: html
-
-   <p align="center">
-
-.. raw:: html
-
-   <p align="center">
-
 (The cropped edges are because of the output dimensions, which are
 customizable.)
 
-.. raw:: html
-
-   </p>
-
-.. raw:: html
-
-   </p>
-
-Unlike ```svgutils`` <https://github.com/btel/svg_utils>`__ (which this
+Unlike `svgutils <https://github.com/btel/svg_utils>`_ (which this
 module is based on), ``.rotate()`` rotates about the center of the
 graphic, instead of the top left corner. This produces results the user
 would expect.
