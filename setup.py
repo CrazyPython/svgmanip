@@ -41,12 +41,10 @@ with open('README.rst') as f:
 
 setuptools.setup(
     name='svgmanip',
-    version='0.0.10',
+    version='0.0.12',
     py_modules=['svgmanip'],
     url='https://github.com/CrazyPython/svgmanip',
     license='Apache 2.0',
-    author='James Lu',
-    author_email='jamtlu@gmail.com',
     description='`svgmanip` helps import and composite together existing SVG drawings. More information is available at the GitHub README.',
     long_description=long_description,
     classifiers=CLASSIFIERS,
